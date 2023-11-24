@@ -202,8 +202,7 @@ public:
 // нпек
 class Eagle : public AirTransport {
 protected:
-	int speed = 10;
-	double reduceDistance = 0.94;
+	int speed = 8;
 
 public:
 	const char* getName() const {
@@ -211,8 +210,8 @@ public:
 	}
 
 	double calcTimeRide(int distance) override {
-		double move = distance / speed;
-		double time = move * reduceDistance;
+		double move = static_cast<double>(distance) / speed;
+		double time = move * 0.94;
 		this->distanceTime = time;
 		return time;
 	}
@@ -221,7 +220,7 @@ public:
 // леркю
 class Stick : public AirTransport {
 protected:
-	int speed = 10;
+	int speed = 20;
 
 public:
 	const char* getName() const {

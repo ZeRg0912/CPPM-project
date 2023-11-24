@@ -18,7 +18,7 @@ class RaceAll {
 protected:
 
 public:
-	void printRegisterTableMenu() {
+	virtual void printRegisterTableMenu() {
 		std::cout << "1. Ботинки - вездеходы" << std::endl;
 		std::cout << "2. Метла" << std::endl;
 		std::cout << "3. Верблюд" << std::endl;
@@ -94,7 +94,7 @@ public:
 		}
 	}
 
-	std::vector<Transport*> createTransports(std::vector<Transport*>& TransportsForRace, int distance) {
+	virtual std::vector<Transport*> createTransports(std::vector<Transport*>& TransportsForRace, int distance) {
 		allTransport typeTransport;
 		int type;
 		do {
@@ -200,14 +200,14 @@ public:
 };
 
 class RaceAir : public RaceAll{
-	void printRegisterTableMenu() {
+	void printRegisterTableMenu() override {
 		std::cout << "1. Метла" << std::endl;
 		std::cout << "2. Орел" << std::endl;
 		std::cout << "3. Ковер - самолет" << std::endl;
 		std::cout << "Выберите транспорт или 0 для окончания процесса регистрации: ";
 	}
 
-	std::vector<Transport*> createTransports(std::vector<Transport*>& TransportsForRace, int distance) {
+	std::vector<Transport*> createTransports(std::vector<Transport*>& TransportsForRace, int distance) override {
 		airTransport typeTransport;
 		int type;
 		do {
@@ -248,7 +248,7 @@ class RaceAir : public RaceAll{
 };
 
 class RaceGround : public RaceAll {
-	void printRegisterTableMenu() {
+	void printRegisterTableMenu() override {
 		std::cout << "1. Ботинки - вездеходы" << std::endl;
 		std::cout << "2. Верблюд" << std::endl;
 		std::cout << "3. Кентавр" << std::endl;
@@ -256,7 +256,7 @@ class RaceGround : public RaceAll {
 		std::cout << "Выберите транспорт или 0 для окончания процесса регистрации: ";
 	}
 
-	std::vector<Transport*> createTransports(std::vector<Transport*>& TransportsForRace, int distance) {
+	std::vector<Transport*> createTransports(std::vector<Transport*>& TransportsForRace, int distance) override {
 		groundTransport typeTransport;
 		int type;
 		do {
